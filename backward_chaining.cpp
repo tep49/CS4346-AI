@@ -22,6 +22,10 @@ int main(){
 
     int clause[100] = {0};
     initClause(clause, conc);
+    
+    // Without this line, program will output a blank line instead of the word MEDICAL
+    //      even though all other conclusion names output correctly.
+    conc[0][0] = "MEDICAL";
 
     // create conclusion stack
     stack <int> concStack;
