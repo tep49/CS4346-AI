@@ -47,9 +47,9 @@ int main(){
     int clauseFW[50] = {0};
     stack <int> concStackFW;
     string filename;
-
-/*
-    switch(){
+    bool successFW;
+    int a = 0;
+    switch(a){
     case 0:
     filename = "med_vars.txt";
     initVarFW(varFW, filename);
@@ -57,7 +57,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 1:
@@ -67,7 +67,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 2:
@@ -77,7 +77,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 3:
@@ -87,7 +87,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 4:
@@ -97,7 +97,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 5:
@@ -107,7 +107,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 6:
@@ -117,7 +117,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 7:
@@ -127,7 +127,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 8:
@@ -137,7 +137,7 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 9:
@@ -147,11 +147,11 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     }
-*/
+
     return 0;
 }
 
@@ -355,7 +355,7 @@ bool checkConclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5]
 
     int ruleNum = concStackFW.top();
     int varNum;
-    bool success = false;
+    bool successFW = false;
 
     // Get the location in clause list for the rule
     ruleNum = ((ruleNum - 1) * 10) + 1;
@@ -379,7 +379,7 @@ bool checkConclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5]
             int nodeNum = stoi(node);
             if (varNum == nodeNum){
                 // Check if node is initialized and value
-                success = checkVariableFW(i, varFW);
+                successFW = checkVariableFW(i, varFW);
                 break;
             }
         }
