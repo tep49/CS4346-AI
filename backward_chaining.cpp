@@ -52,53 +52,53 @@ int main(){
     switch(){
     case 0:
     filename = "med_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 1:
     filename = "sci_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 2:
     filename = "eng_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 3:
     filename = "ed_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 4:
     filename = "fine_art_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 5:
     filename = "pol_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 6:
     filename = "law_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 7:
     filename = "comm_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 8:
     filename = "bus_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     case 9:
     filename = "lib_art_vars.txt";
-    initVar(varFW, filename);
-    initConc(concFW, filename);
+    initVarFW(varFW, filename);
+    initConcFW(concFW, filename);
     break;
     }
 
