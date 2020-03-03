@@ -41,104 +41,118 @@ int main(){
     /************************************************************
                         Forward Chaining
     ************************************************************/
+
     string varFW[3][5];
     string concFW[2][5];
     int clauseFW[50] = {0};
     stack <int> concStackFW;
-    string filename;
+    string fileVar;
+    string fileConc;
     int a = 0;
     switch(a){
     case 0:
-    filename = "med_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "med_vars.txt";
+    fileConc = "med_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 1:
-    filename = "sci_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "sci_vars.txt";
+    fileConc = "sci_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 2:
-    filename = "eng_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "eng_vars.txt";
+    fileConc = "eng_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 3:
-    filename = "ed_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "ed_vars.txt";
+    fileConc = "ed_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 4:
-    filename = "fine_art_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "fine_art_vars.txt";
+    fileConc = "fine_art_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 5:
-    filename = "pol_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "pol_vars.txt";
+    fileConc = "pol_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 6:
-    filename = "law_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "law_vars.txt";
+    fileConc = "law_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     };
 
     break;
     case 7:
-    filename = "comm_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "comm_vars.txt";
+    fileConc = "comm_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 8:
-    filename = "bus_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "bus_vars.txt";
+    fileConc = "bus_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     case 9:
-    filename = "lib_art_vars.txt";
-    initVarFW(varFW, filename);
-    initConcFW(concFW, "conclusions_fw.txt");
+    fileVar = "lib_art_vars.txt";
+    fileConc = "lib_art_conc.txt";
+    initVarFW(varFW, fileVar);
+    initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
 
     break;
     }
+
+/**output job to console **/
 
     return 0;
 }
@@ -338,22 +352,4 @@ void initClauseFW(int clauseFW[], string concFW[][5]){
         }
     }
 }
-
-bool checkVariableFW(int num, string varFW[][5]){
-
-    if (varFW[2][num] == "NI"){
-        // Initialize Variable
-    }
-    // If variable has already been initialized
-    else if(varFW[2][num] == "YES"){
-        return true;
-    }
-    else if(varFW[2][num] == "NO"){
-        return false;
-    }
-    return true;
-}
-
-
-
 
