@@ -47,7 +47,6 @@ int main(){
     int clauseFW[50] = {0};
     stack <int> concStackFW;
     string filename;
-    bool successFW;
     int a = 0;
     switch(a){
     case 0:
@@ -57,7 +56,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 1:
@@ -67,7 +65,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 2:
@@ -77,7 +74,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 3:
@@ -87,7 +83,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 4:
@@ -97,7 +92,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 5:
@@ -107,7 +101,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 6:
@@ -116,8 +109,7 @@ int main(){
     initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
-    }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+    };
 
     break;
     case 7:
@@ -127,7 +119,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 8:
@@ -137,7 +128,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     case 9:
@@ -147,7 +137,6 @@ int main(){
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
-    successFW = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
 
     break;
     }
