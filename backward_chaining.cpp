@@ -54,51 +54,101 @@ int main(){
     filename = "med_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 1:
     filename = "sci_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 2:
     filename = "eng_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 3:
     filename = "ed_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 4:
     filename = "fine_art_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 5:
     filename = "pol_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 6:
     filename = "law_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 7:
     filename = "comm_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 8:
     filename = "bus_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     case 9:
     filename = "lib_art_vars.txt";
     initVarFW(varFW, filename);
     initConcFW(concFW, filename);
+    for (int i = 5; i > 0; i--){
+    concStack.push(i);
+    }
+    bool success = checkConclusionFW(concStackFW, clauseFW, varFW, concFW);
+
     break;
     }
 
