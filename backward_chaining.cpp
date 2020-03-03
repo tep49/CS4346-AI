@@ -47,13 +47,13 @@ int main(){
     int clauseFW[50] = {0};
     stack <int> concStackFW;
     string filename;
-    /**
+
 
     switch(){
     case 0:
     filename = "med_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -63,7 +63,7 @@ int main(){
     case 1:
     filename = "sci_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -73,7 +73,7 @@ int main(){
     case 2:
     filename = "eng_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -83,7 +83,7 @@ int main(){
     case 3:
     filename = "ed_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -93,7 +93,7 @@ int main(){
     case 4:
     filename = "fine_art_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -103,7 +103,7 @@ int main(){
     case 5:
     filename = "pol_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -113,7 +113,7 @@ int main(){
     case 6:
     filename = "law_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -123,7 +123,7 @@ int main(){
     case 7:
     filename = "comm_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -133,7 +133,7 @@ int main(){
     case 8:
     filename = "bus_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -143,7 +143,7 @@ int main(){
     case 9:
     filename = "lib_art_vars.txt";
     initVarFW(varFW, filename);
-    initConcFW(concFW, filename);
+    initConcFW(concFW, "conclusions_fw.txt");
     for (int i = 5; i > 0; i--){
     concStack.push(i);
     }
@@ -152,7 +152,6 @@ int main(){
     break;
     }
 
-    **/
     return 0;
 }
 
