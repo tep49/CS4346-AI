@@ -13,7 +13,6 @@ bool checkVariable(int num, string var[][10]);
 void initVarFW(string[][5], string filename);
 void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
-bool checkConclusionFW(stack<int> concStack, int clause[], string var[][5], string conc[][5]);
 bool checkVariableFW(int num, string var[][5]);
 
 int main(){
@@ -338,43 +337,6 @@ void initClauseFW(int clauseFW[], string concFW[][5]){
             clauseFW[(j + location)] = ruleNum;
         }
     }
-}
-
-bool checkConclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5], string concFW[][5]){
-
-    int ruleNum = concStackFW.top();
-    int varNum;
-    bool successFW = false;
-
-    // Get the location in clause list for the rule
-    ruleNum = ((ruleNum - 1) * 10) + 1;
-    int ruleLen = 0;
-
-    // Go to end of rule to work backwards
-    while (clauseFW[ruleNum] != 0){
-        ruleLen++;
-        ruleNum++;
-    }
-
-    // Check each variable of rule
-    for (int i = (ruleLen - 1); i > 0; i--){
-
-        varNum = clauseFW[i];
-
-        // Find associated variable
-        for (int i = 0; i < 5; i++){
-
-            string node = varFW[1][i];
-            int nodeNum = stoi(node);
-            if (varNum == nodeNum){
-                // Check if node is initialized and value
-                successFW = checkVariableFW(i, varFW);
-                break;
-            }
-        }
-    }
-
-    return true;
 }
 
 bool checkVariableFW(int num, string varFW[][5]){
