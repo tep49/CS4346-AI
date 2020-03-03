@@ -10,8 +10,8 @@ void initConc(string[][10]);
 void initClause(int clause[], string conc[][10]);
 bool checkConclusion(stack<int> concStack, int clause[], string var[][10], string conc[][10]);
 bool checkVariable(int num, string var[][10]);
-void initVarFW(string[][5]);
-void initConcFW(string[][5]);
+void initVarFW(string[][5], string filename);
+void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
 bool checkConclusionFW(stack<int> concStack, int clause[], string var[][5], string conc[][5]);
 bool checkVariableFW(int num, string var[][5]);
@@ -48,7 +48,7 @@ int main(){
     stack <int> concStackFW;
     string filename;
 
-
+/*
     switch(){
     case 0:
     filename = "med_vars.txt";
@@ -151,7 +151,7 @@ int main(){
 
     break;
     }
-
+*/
     return 0;
 }
 
@@ -269,7 +269,7 @@ bool checkVariable(int num, string var[][10]){
     }
     // If variable has already been initialized
     else if(var[2][num] == "YES"){
-        return true
+        return true;
     }
     else if(var[2][num] == "NO"){
         return false;
@@ -309,7 +309,7 @@ void initConcFW(string concFW[][5], string filename){
     for (int i = 0; i < 5; i++){
 
         getline(file, concName);
-        conc[0][i] = concName;
+        concFW[0][i] = concName;
 
         getline(file, path);
         concFW[1][i] = path;
@@ -379,7 +379,7 @@ bool checkConclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5]
             int nodeNum = stoi(node);
             if (varNum == nodeNum){
                 // Check if node is initialized and value
-                success = checkVariableFW(i, var);
+                success = checkVariableFW(i, varFW);
                 break;
             }
         }
@@ -395,7 +395,7 @@ bool checkVariableFW(int num, string varFW[][5]){
     }
     // If variable has already been initialized
     else if(varFW[2][num] == "YES"){
-        return true
+        return true;
     }
     else if(varFW[2][num] == "NO"){
         return false;
