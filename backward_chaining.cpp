@@ -18,7 +18,7 @@ void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
 bool checkVarFW(int num, string var[][5]);
 bool initQ(int num, string filename);
-bool conclusionFW(stack<int> concStack, int clause[], string var[][5], string conc[][5]);
+bool conclusionFW(queue<int> concStack, int clause[], string var[][5], string conc[][5]);
 
 int main(){
 
