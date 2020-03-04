@@ -62,9 +62,9 @@ int main(){
     string varFW[3][5];
     string concFW[2][5];
     int clauseFW[50] = {0};
-    queue<int> concQueue;
+    queue<int> concQueueFW;
     string fileVar, fileConc, fileQ;
-
+    bool done;
     switch(conclusion){
     case 0:
     fileVar = "med_vars.txt";
@@ -79,12 +79,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -101,12 +101,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -123,12 +123,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -145,12 +145,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -167,12 +167,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -189,12 +189,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -206,17 +206,17 @@ int main(){
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
     concQueue.push(i);
-    };
+    }
     done = 0;
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -233,12 +233,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -255,12 +255,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
@@ -277,12 +277,12 @@ int main(){
     while (!done){
         concFW = concQueue.top();
         cout << "\nChecking career " << conc[0][conclusion];
-        success = checkConclusion(concQueue, clause, var, conc);
-        if (success){
+        done = checkConclusion(concQueue, clause, var, conc);
+        if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
         else{
-            concQueue.pop();
+            concStack.pop();
         }
     }
     break;
