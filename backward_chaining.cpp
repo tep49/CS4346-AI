@@ -18,7 +18,7 @@ void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
 bool checkVarFW(int num, string var[][5]);
 bool initQ(int num, string filename);
-bool conclusionFW(queue<int> concSQueue, int clauseFW[], string varFW[][5], string concFW[][5]);
+bool conclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5], string concFW[][5]);
 
 int main(){
 
@@ -63,10 +63,11 @@ int main(){
     string varFW[3][5];
     string concFW[2][5];
     int clauseFW[50] = {0};
-    queue<int> concQueue;
+    stack<int> concStackFW;
     string fileVar, fileConc, fileQ;
     bool done;
     int concluFW;
+
     switch(conclusion){
     case 0:
     fileVar = "med_vars.txt";
@@ -75,18 +76,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -97,18 +98,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -118,19 +119,19 @@ int main(){
     fileQ = "q_eng.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
-      for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    for (int i = 5; i > 0; i--){
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -140,19 +141,19 @@ int main(){
     fileQ = "q_ed.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
-     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    for (int i = 5; i > 0; i--){
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -163,18 +164,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -184,19 +185,19 @@ int main(){
     fileQ = "q_pol.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
-     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    for (int i = 5; i > 0; i--){
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -207,18 +208,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -229,18 +230,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -251,18 +252,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -273,18 +274,18 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concQueue.push(i);
+    concStackFW.push(i);
     }
     done = 0;
     while (!done){
-        concFW = concQueue.front();
+        concFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
-        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
+        done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
             cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concQueue.pop();
+            concStackFW.pop();
         }
     }
     break;
@@ -630,9 +631,9 @@ bool initQ(int num, string filename){
     return val;
 }
 
-bool conclusionFW(queue<int> concQueue, int clauseFW[], string varFW[][5], string concFW[][5]) {
+bool conclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5], string concFW[][5]) {
 
-    int ruleNum = concQueue.front();
+    int ruleNum = concStackFW.top();
     int varNum;
     bool success = false;
     bool response;
