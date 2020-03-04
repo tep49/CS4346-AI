@@ -15,7 +15,9 @@ bool initializeValue(int num);
 void initVarFW(string[][5], string filename);
 void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
-bool checkVariableFW(int num, string var[][5]);
+bool checkVarFW(int num, string var[][5]);
+bool initQ(int num, string filename);
+bool conclusionFW(stack<int> concStack, int clause[], string var[][5], string conc[][5])
 
 int main(){
 
@@ -61,13 +63,13 @@ int main(){
     string concFW[2][5];
     int clauseFW[50] = {0};
     stack <int> concStackFW;
-    string fileVar;
-    string fileConc;
-    int a = 0;
+    string fileVar, fileConc, fileQ;
+
     switch(conclusion){
     case 0:
     fileVar = "med_vars.txt";
     fileConc = "med_conc.txt";
+    fileQ = "q_med.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -78,6 +80,7 @@ int main(){
     case 1:
     fileVar = "sci_vars.txt";
     fileConc = "sci_conc.txt";
+    fileQ = "q_sci.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -88,6 +91,7 @@ int main(){
     case 2:
     fileVar = "eng_vars.txt";
     fileConc = "eng_conc.txt";
+    fileQ = "q_eng.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -98,6 +102,7 @@ int main(){
     case 3:
     fileVar = "ed_vars.txt";
     fileConc = "ed_conc.txt";
+    fileQ = "q_ed.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -108,6 +113,7 @@ int main(){
     case 4:
     fileVar = "fine_art_vars.txt";
     fileConc = "fine_art_conc.txt";
+    fileQ = "q_fine.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -118,6 +124,7 @@ int main(){
     case 5:
     fileVar = "pol_vars.txt";
     fileConc = "pol_conc.txt";
+    fileQ = "q_pol.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -128,6 +135,7 @@ int main(){
     case 6:
     fileVar = "law_vars.txt";
     fileConc = "law_conc.txt";
+    fileQ = "q_law.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -138,6 +146,7 @@ int main(){
     case 7:
     fileVar = "comm_vars.txt";
     fileConc = "comm_conc.txt";
+    fileQ = "q_comm.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -148,6 +157,7 @@ int main(){
     case 8:
     fileVar = "bus_vars.txt";
     fileConc = "bus_conc.txt";
+    fileQ = "q_bus.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -158,6 +168,7 @@ int main(){
     case 9:
     fileVar = "lib_art_vars.txt";
     fileConc = "lib_art_conc.txt";
+    fileQ = "q_lib.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
@@ -438,7 +449,6 @@ void initClauseFW(int clauseFW[], string concFW[][5]){
             }
             else {
                 path[x] = path[x] * 10 + (pathString[y] - 48);/**change formula**/
-                //cout << path[x];
             }
         }
         // Assign rules to clause list
@@ -450,3 +460,64 @@ void initClauseFW(int clauseFW[], string concFW[][5]){
     }
 }
 
+bool checkVarFW(int num, string var[][5]){
+
+    bool val;
+    string file;
+    if (var[2][num] == "NI"){
+        val = initQ(num, file);
+        if (val == true){
+            var[2][num] = "YES";
+        }
+        else{
+            var[2][num] = "NO";
+        }
+    }
+    // If variable has already been initialized
+    else if(var[2][num] == "YES"){
+        val = true;
+    }
+    else if(var[2][num] == "NO"){
+        val = false;
+    }
+    return val;
+}
+bool initQ(int num, string filename){
+
+    ifstream file(filename);
+    string q;
+    string qs[4];
+    string response;
+    bool input = 0;
+    bool val;
+
+    for (int i = 0; i < 4; i++){
+        getline(file, q);
+        qs[i] = q;
+    }
+
+    while (input == 0){
+        cout << "\n" << qs[num];
+        cin >> response;
+
+        transform(response.begin(), response.end(), response.begin(), ::toupper);
+
+        if (response.compare("YES") == 0){
+            val = true;
+            input = 1;
+        }
+        else if (response.compare("NO") == 0){
+            val = false;
+            input = 1;
+        }
+        else{
+            cout << "\nIncorrect Input";
+        }
+    }
+
+    return val;
+}
+
+bool conclusionFW(stack<int> concStack, int clause[], string var[][5], string conc[][5]) {
+
+}
