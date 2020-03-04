@@ -18,7 +18,7 @@ void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
 bool checkVarFW(int num, string var[][5]);
 bool initQ(int num, string filename);
-bool conclusionFW(queue<int> concStack, int clause[], string var[][5], string conc[][5]);
+bool conclusionFW(queue<int> concSQueue, int clauseFW[], string varFW[][5], string concFW[][5]);
 
 int main(){
 
@@ -66,6 +66,7 @@ int main(){
     queue<int> concQueue;
     string fileVar, fileConc, fileQ;
     bool done;
+    int concluFW;
     switch(conclusion){
     case 0:
     fileVar = "med_vars.txt";
@@ -79,13 +80,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -101,13 +102,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -117,19 +118,19 @@ int main(){
     fileQ = "q_eng.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
-    for (int i = 5; i > 0; i--){
+      for (int i = 5; i > 0; i--){
     concQueue.push(i);
     }
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -139,19 +140,19 @@ int main(){
     fileQ = "q_ed.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
-    for (int i = 5; i > 0; i--){
+     for (int i = 5; i > 0; i--){
     concQueue.push(i);
     }
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -167,13 +168,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -183,19 +184,19 @@ int main(){
     fileQ = "q_pol.txt";
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
-    for (int i = 5; i > 0; i--){
+     for (int i = 5; i > 0; i--){
     concQueue.push(i);
     }
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -211,13 +212,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -233,13 +234,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -255,13 +256,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -277,13 +278,13 @@ int main(){
     done = 0;
     while (!done){
         concFW = concQueue.front();
-        cout << "\nChecking career " << conc[0][conclusion];
-        done = conclusionFW(concQueue, clause, var, conc);
+        cout << "\nChecking career " << concFW[0][concluFW];
+        done = conclusionFW(concQueue, clauseFW, varFW, concFW);
         if (done){
-            cout << "\nCareer: " << conc[0][conclusion];
+            cout << "\nCareer: " << concFW[0][concluFW];
         }
         else{
-            concStack.pop();
+            concQueue.pop();
         }
     }
     break;
@@ -629,7 +630,7 @@ bool initQ(int num, string filename){
     return val;
 }
 
-bool conclusionFW(queue<int> concQueue, int clause[], string var[][5], string conc[][5]) {
+bool conclusionFW(queue<int> concQueue, int clauseFW[], string varFW[][5], string concFW[][5]) {
 
     int ruleNum = concQueue.front();
     int varNum;
@@ -637,7 +638,7 @@ bool conclusionFW(queue<int> concQueue, int clause[], string var[][5], string co
     bool response;
 
 
-    string pathString = conc[2][ruleNum];
+    string pathString = concFW[2][ruleNum];
     int length = pathString.length();
     int negPath[length] = { 0 };
 
@@ -658,7 +659,7 @@ bool conclusionFW(queue<int> concQueue, int clause[], string var[][5], string co
     int ruleLen = 0;
 
     // Go to end of rule to work backwards
-    while (clause[ruleNum] != 0){
+    while (clauseFW[ruleNum] != 0){
         ruleLen++;
         ruleNum++;
     }
@@ -666,12 +667,12 @@ bool conclusionFW(queue<int> concQueue, int clause[], string var[][5], string co
     // Check each variable of rule
     for (int i = (ruleNum - 2); i > (ruleNum - (ruleLen + 1)); i--){
 
-        varNum = clause[i];
+        varNum = clauseFW[i];
 
         // Find associated variable
         for (int j = 0; j < 10; j++){
 
-            string node = var[1][j];
+            string node = varFW[1][j];
             int nodeNum = stoi(node);
             if (varNum == nodeNum){
                 // Check if node is initialized and value
