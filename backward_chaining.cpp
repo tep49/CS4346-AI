@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,6 +11,7 @@ void initConc(string[][10]);
 void initClause(int clause[], string conc[][10]);
 bool checkConclusion(stack<int> concStack, int clause[], string var[][10], string conc[][10]);
 bool checkVariable(int num, string var[][10]);
+bool initializeValue(int num);
 void initVarFW(string[][5], string filename);
 void initConcFW(string[][5], string filename);
 void initClauseFW(int clause[], string conc[][5]);
@@ -20,7 +22,7 @@ int main(){
     string var[3][10];
     initVar(var);
 
-    string conc[2][10];
+    string conc[3][10];
     initConc(conc);
 
     int clause[100] = {0};
@@ -32,11 +34,24 @@ int main(){
 
     // create conclusion stack
     stack <int> concStack;
-    for (int i = 10; i > 0; i--){
+    for (int i = 9; i >= 0; i--){
         concStack.push(i);
     }
 
-    bool success = checkConclusion(concStack, clause, var, conc);
+    bool success = 0;
+    int conclusion;
+
+    while (!success){
+        conclusion = concStack.top();
+        cout << "\nChecking conclusion " << conc[0][conclusion];
+        success = checkConclusion(concStack, clause, var, conc);
+        if (success){
+            cout << "\nProfession: " << conc[0][conclusion];
+        }
+        else{
+            concStack.pop();
+        }
+    }
 
     /************************************************************
                         Forward Chaining
@@ -49,7 +64,7 @@ int main(){
     string fileVar;
     string fileConc;
     int a = 0;
-    switch(a){
+    switch(conclusion){
     case 0:
     fileVar = "med_vars.txt";
     fileConc = "med_conc.txt";
@@ -180,6 +195,7 @@ void initConc(string conc[][10]){
 
     string concName;
     string path;
+    string negPath;
     ifstream file ("conclusions.txt");
 
     for (int i = 0; i < 10; i++){
@@ -189,6 +205,9 @@ void initConc(string conc[][10]){
 
         getline(file, path);
         conc[1][i] = path;
+
+        getline(file, negPath);
+        conc[2][i] = negPath;
     }
     file.close();
 }
@@ -215,7 +234,6 @@ void initClause(int clause[], string conc[][10]){
             }
             else {
                 path[x] = path[x] * 10 + (pathString[y] - 48);
-                //cout << path[x];
             }
         }
         // Assign rules to clause list
@@ -232,9 +250,27 @@ bool checkConclusion(stack<int> concStack, int clause[], string var[][10], strin
     int ruleNum = concStack.top();
     int varNum;
     bool success = false;
+    bool response;
+
+
+    string pathString = conc[2][ruleNum];
+    int length = pathString.length();
+    int negPath[length] = { 0 };
+
+    int x = 0;
+
+    for (int y = 0; pathString[y] != '\0'; y++) {
+
+        if (pathString[y] == ',') {
+            x++;
+        }
+        else {
+            negPath[x] = negPath[x] * 10 + (pathString[y] - 48);
+        }
+    }
 
     // Get the location in clause list for the rule
-    ruleNum = ((ruleNum - 1) * 10) + 1;
+    ruleNum = ((ruleNum) * 10) + 1;
     int ruleLen = 0;
 
     // Go to end of rule to work backwards
@@ -244,41 +280,102 @@ bool checkConclusion(stack<int> concStack, int clause[], string var[][10], strin
     }
 
     // Check each variable of rule
-    for (int i = (ruleLen - 1); i > 0; i--){
+    for (int i = (ruleNum - 2); i > (ruleNum - (ruleLen + 1)); i--){
 
         varNum = clause[i];
 
         // Find associated variable
-        for (int i = 0; i < 10; i++){
+        for (int j = 0; j < 10; j++){
 
-            string node = var[1][i];
+            string node = var[1][j];
             int nodeNum = stoi(node);
             if (varNum == nodeNum){
                 // Check if node is initialized and value
-                success = checkVariable(i, var);
-                break;
+                response = checkVariable(j, var);
+
+                if ((response == true) && (varNum == nodeNum)){
+                    success = true;
+                    break;
+                }
+                else{
+                    success = false;
+                }
+                for (int x = 0; x < length; x++){
+                    if ((response == false) && (negPath[x] == varNum)){
+                        success = true;
+                        break;
+                    }
+                    else{
+                        success = false;
+                    }
+                }
+                if (success == false){
+                    return false;
+                }
+                }
             }
         }
-    }
 
-    return true;
+    return success;
 }
 
 bool checkVariable(int num, string var[][10]){
 
+    bool val;
     if (var[2][num] == "NI"){
-        // Initialize Variable
+        val = initializeValue(num);
+        if (val == true){
+            var[2][num] = "YES";
+        }
+        else{
+            var[2][num] = "NO";
+        }
     }
     // If variable has already been initialized
     else if(var[2][num] == "YES"){
-        return true;
+        val = true;
     }
     else if(var[2][num] == "NO"){
-        return false;
+        val = false;
     }
-    return true;
+    return val;
 }
 
+bool initializeValue(int num){
+
+    ifstream file("questions.txt");
+    string question;
+    string questions[10];
+    string response;
+    bool input = 0;
+    bool val;
+
+    for (int i = 0; i < 10; i++){
+        getline(file, question);
+        questions[i] = question;
+    }
+
+    while (input == 0){
+        cout << "\n" << questions[num];
+        cin >> response;
+
+        transform(response.begin(), response.end(), response.begin(), ::toupper);
+
+        if (response.compare("YES") == 0){
+            val = true;
+            input = 1;
+        }
+        else if (response.compare("NO") == 0){
+            val = false;
+            input = 1;
+        }
+        else{
+            cout << "\nIncorrect Input";
+        }
+    }
+
+    return val;
+}
 /**************************************************
           Functions for forward chaining
 **************************************************/
