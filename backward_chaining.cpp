@@ -80,7 +80,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -102,7 +102,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -124,7 +124,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -146,7 +146,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -168,7 +168,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -190,7 +190,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -212,7 +212,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -234,7 +234,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -256,7 +256,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -278,7 +278,7 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concStackFW.top();
+        concluFW = concStackFW.top();
         cout << "\nChecking career " << concFW[0][concluFW];
         done = conclusionFW(concStackFW, clauseFW, varFW, concFW);
         if (done){
@@ -677,7 +677,7 @@ bool conclusionFW(stack<int> concStackFW, int clauseFW[], string varFW[][5], str
             int nodeNum = stoi(node);
             if (varNum == nodeNum){
                 // Check if node is initialized and value
-                response = checkVarFW(j, var);
+                response = checkVarFW(j, varFW);
 
                 if ((response == true) && (varNum == nodeNum)){
                     success = true;
