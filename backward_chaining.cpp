@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <stack>
+#include <queue>
 #include <algorithm>
 
 using namespace std;
@@ -62,7 +63,7 @@ int main(){
     string varFW[3][5];
     string concFW[2][5];
     int clauseFW[50] = {0};
-    queue<int> concQueueFW;
+    queue<int> concQueue;
     string fileVar, fileConc, fileQ;
     bool done;
     switch(conclusion){
@@ -77,9 +78,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -99,9 +100,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -121,9 +122,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -143,9 +144,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -165,9 +166,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -187,9 +188,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -209,9 +210,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -231,9 +232,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -253,9 +254,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -275,9 +276,9 @@ int main(){
     }
     done = 0;
     while (!done){
-        concFW = concQueue.top();
+        concFW = concQueue.front();
         cout << "\nChecking career " << conc[0][conclusion];
-        done = checkConclusion(concQueue, clause, var, conc);
+        done = conclusionFW(concQueue, clause, var, conc);
         if (done){
             cout << "\nCareer: " << conc[0][conclusion];
         }
@@ -628,6 +629,76 @@ bool initQ(int num, string filename){
     return val;
 }
 
-bool conclusionFW(stack<int> concStack, int clause[], string var[][5], string conc[][5]) {
+bool conclusionFW(queue<int> concQueue, int clause[], string var[][5], string conc[][5]) {
 
+    int ruleNum = concQueue.front();
+    int varNum;
+    bool success = false;
+    bool response;
+
+
+    string pathString = conc[2][ruleNum];
+    int length = pathString.length();
+    int negPath[length] = { 0 };
+
+    int x = 0;
+
+    for (int y = 0; pathString[y] != '\0'; y++) {
+
+        if (pathString[y] == ',') {
+            x++;
+        }
+        else {
+            negPath[x] = negPath[x] * 10 + (pathString[y] - 48);
+        }
+    }
+
+    // Get the location in clause list for the rule
+    ruleNum = ((ruleNum) * 10) + 1;
+    int ruleLen = 0;
+
+    // Go to end of rule to work backwards
+    while (clause[ruleNum] != 0){
+        ruleLen++;
+        ruleNum++;
+    }
+
+    // Check each variable of rule
+    for (int i = (ruleNum - 2); i > (ruleNum - (ruleLen + 1)); i--){
+
+        varNum = clause[i];
+
+        // Find associated variable
+        for (int j = 0; j < 10; j++){
+
+            string node = var[1][j];
+            int nodeNum = stoi(node);
+            if (varNum == nodeNum){
+                // Check if node is initialized and value
+                response = checkVarFW(j, var);
+
+                if ((response == true) && (varNum == nodeNum)){
+                    success = true;
+                    break;
+                }
+                else{
+                    success = false;
+                }
+                for (int x = 0; x < length; x++){
+                    if ((response == false) && (negPath[x] == varNum)){
+                        success = true;
+                        break;
+                    }
+                    else{
+                        success = false;
+                    }
+                }
+                if (success == false){
+                    return false;
+                }
+                }
+            }
+        }
+
+    return success;
 }
