@@ -62,7 +62,7 @@ int main(){
     string varFW[3][5];
     string concFW[2][5];
     int clauseFW[50] = {0};
-    stack <int> concStackFW;
+    queue<int> concQueue;
     string fileVar, fileConc, fileQ;
 
     switch(conclusion){
@@ -73,9 +73,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 1:
     fileVar = "sci_vars.txt";
@@ -84,9 +95,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 2:
     fileVar = "eng_vars.txt";
@@ -95,9 +117,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 3:
     fileVar = "ed_vars.txt";
@@ -106,9 +139,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 4:
     fileVar = "fine_art_vars.txt";
@@ -117,9 +161,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 5:
     fileVar = "pol_vars.txt";
@@ -128,9 +183,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 6:
     fileVar = "law_vars.txt";
@@ -139,9 +205,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     };
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 7:
     fileVar = "comm_vars.txt";
@@ -150,9 +227,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 8:
     fileVar = "bus_vars.txt";
@@ -161,9 +249,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     case 9:
     fileVar = "lib_art_vars.txt";
@@ -172,9 +271,20 @@ int main(){
     initVarFW(varFW, fileVar);
     initConcFW(concFW, fileConc);
     for (int i = 5; i > 0; i--){
-    concStack.push(i);
+    concQueue.push(i);
     }
-
+    done = 0;
+    while (!done){
+        concFW = concQueue.top();
+        cout << "\nChecking career " << conc[0][conclusion];
+        success = checkConclusion(concQueue, clause, var, conc);
+        if (success){
+            cout << "\nCareer: " << conc[0][conclusion];
+        }
+        else{
+            concQueue.pop();
+        }
+    }
     break;
     }
 
